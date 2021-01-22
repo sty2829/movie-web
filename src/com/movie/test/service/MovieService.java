@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface MovieService {
 
-	List<Map<String,String>> selectMovieList();
+	List<Map<String,String>> selectMovieList(String miName);
 	
 	Map<String,String> selectMovie(int miNum);
 	
@@ -14,4 +14,5 @@ public interface MovieService {
 	int updateMovie(Map<String,String> movie);
 	
 	int deleteMovie(int miNum);
+	
 }

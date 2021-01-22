@@ -24,18 +24,16 @@ public class MovieServlet extends HttpServlet {
 		String uri = request.getRequestURI();
 		int idx = uri.lastIndexOf("/");
 		String cmd = uri.substring(idx+1);
-		String path = "";
+		String path = "/movie/movie-" + cmd;
 		if("list".equals(cmd)){
-			path = "/movie/movie-list";
-			List<Map<String,String>> movieList = movieService.selectMovieList();
+			String miName = request.getParameter("mi_name");
+			List<Map<String,String>> movieList = movieService.selectMovieList(miName);
 			request.setAttribute("movieList", movieList);
 		}else if("insert".equals(cmd)) {
-			path = "/movie/movie-insert";
 		}else if("update".equals(cmd)) {
-			path = "/movie/movie-update";
-			String miNum = request.getParameter("mi_num");
-			Map<String, String> movie = movieService.selectMovie(Integer.parseInt(miNum));
-			request.setAttribute("movie", movie);
+			request.setAttribute("movie", movieService.selectMovie(Integer.parseInt(request.getParameter("mi_num"))));
+		}else if("view".equals(cmd)) {
+			request.setAttribute("movie", movieService.selectMovie(Integer.parseInt(request.getParameter("mi_num"))));
 		}
 		
 		
@@ -50,7 +48,6 @@ public class MovieServlet extends HttpServlet {
 		int idx = uri.lastIndexOf("/");
 		String cmd = uri.substring(idx+1);
 		String path = "/movie/result";
-		String msg = "";
 		
 		Map<String,String> movie = new HashMap<String,String>();
 		movie.put("mi_num", request.getParameter("mi_num"));
@@ -60,31 +57,26 @@ public class MovieServlet extends HttpServlet {
 		movie.put("mi_director", request.getParameter("mi_director"));
 		movie.put("mi_release_date", request.getParameter("mi_release_date"));
 		movie.put("mi_desc", request.getParameter("mi_desc"));
+		String miReleaseDate = request.getParameter("mi_release_date");
+		if(miReleaseDate!=null) {
+			miReleaseDate = miReleaseDate.replace("-", "");
+			movie.put("mi_release_date", miReleaseDate);
+		}
 		
 		if("insert".equals(cmd)) {
+			request.setAttribute("msg", "영화 등록에 성공하였습니다");
 			if(movieService.insertMovie(movie) != 1) {
-				msg = "영화 등록에 실패하였습니다";
-				request.setAttribute("msg", msg);
-			}else {
-				msg = "영화 등록에 성공하였습니다";
-				request.setAttribute("msg", msg);
+				request.setAttribute("msg", "영화 등록에 실패하였습니다");
 			}
 		}else if("update".equals(cmd)) {
+			request.setAttribute("msg", "영화 수정에 성공하였습니다");
 			if(movieService.updateMovie(movie) != 1) {
-				msg = "영화 수정에 실패하였습니다";
-				request.setAttribute("msg", msg);
-			}else {
-				msg = "영화 수정에 성공하였습니다";
-				request.setAttribute("msg", msg);
+				request.setAttribute("msg", "영화 수정에 실패하였습니다");
 			}
 		}else if("delete".equals(cmd)) {
-			String miNum = request.getParameter("mi_num");
-			if(movieService.deleteMovie(Integer.parseInt(miNum)) != 1) {
-				msg = "영화 삭제에 실패하였습니다";
-				request.setAttribute("msg", msg);
-			}else {
-				msg = "영화 삭제에 성공하였습니다";
-				request.setAttribute("msg", msg);
+			request.setAttribute("msg", "영화 삭제에 성공하였습니다");
+			if(movieService.deleteMovie(Integer.parseInt(request.getParameter("mi_num"))) != 1) {
+				request.setAttribute("msg", "영화 삭제에 실패하였습니다");
 			}
 		}
 		

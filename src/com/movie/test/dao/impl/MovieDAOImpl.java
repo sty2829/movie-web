@@ -14,15 +14,26 @@ import com.movie.test.dao.MovieDAO;
 public class MovieDAOImpl implements MovieDAO {
 
 	@Override
-	public List<Map<String, String>> selectMovieList() {
+	public List<Map<String, String>> selectMovieList(String miName) {
 		List<Map<String, String>> movieList = new ArrayList<Map<String,String>>();
 		Connection con = DBConn.getConn();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
+		String sql = "select mi_num, mi_name, mi_genre, \r\n" + 
+				"mi_producer, mi_director, \r\n" + 
+				"to_char(to_date(mi_release_date), 'yyyy-mm-dd') mi_release_date, \r\n" + 
+				"to_char(to_date(mi_credat), 'yyyy-mm-dd') mi_credat, mi_desc \r\n" + 
+				"from movie_info";
+		if(miName!=null && !"".equals(miName)) {
+			sql += " where mi_name like ?";
+		}
+		sql += " order by mi_num";
 		try {
-			String sql = "select * from movie_info order by mi_num";
+			
 			ps = con.prepareStatement(sql);
+			if(miName!=null && !"".equals(miName)) {
+				ps.setString(1, "%" + miName + "%");
+			}
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				Map<String, String> movie = new HashMap<String,String>();
@@ -57,7 +68,11 @@ public class MovieDAOImpl implements MovieDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from movie_info where mi_num = ?";
+			String sql = "select \r\n" + 
+					"mi_num, mi_name, mi_genre, \r\n" + 
+					"mi_producer, mi_director, to_char(to_date(mi_release_date), 'YYYY-MM-DD') mi_release_date, \r\n" + 
+					"mi_credat, mi_desc \r\n" + 
+					"from movie_info where mi_num = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, miNum);
 			rs = ps.executeQuery();

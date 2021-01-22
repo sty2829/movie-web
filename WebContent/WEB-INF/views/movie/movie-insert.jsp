@@ -12,8 +12,8 @@
 		장르 : <input type="text" name="mi_genre"><br>
 		제작사 : <input type="text" name="mi_producer"><br>
 		감독 : <input type="text" name="mi_director"><br>
-		개봉일 : <input type="text" name="mi_release_date"><br>
-		줄거리 : <input type="text" name="mi_desc"><br>
+		개봉일 : <input type="date" name="mi_release_date"><br>
+		줄거리 : <textarea name="mi_desc" cols="50" rows="8" style="resize:none"></textarea><br>
 		<button>등록</button>
 	</form>
 </body>

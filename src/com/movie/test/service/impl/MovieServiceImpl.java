@@ -12,8 +12,8 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDAO movieDAO = new MovieDAOImpl();
 	
 	@Override
-	public List<Map<String, String>> selectMovieList() {
-		return movieDAO.selectMovieList();
+	public List<Map<String, String>> selectMovieList(String miName) {
+		return movieDAO.selectMovieList(miName);
 	}
 
 	@Override
