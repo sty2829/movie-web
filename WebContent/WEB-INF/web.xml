@@ -49,5 +49,13 @@
   	<servlet-name>MovieServlet</servlet-name>
   	<url-pattern>/movie/*</url-pattern>
   </servlet-mapping>
- 
+
+  <servlet>
+  	<servlet-name>StageServlet</servlet-name>
+  	<servlet-class>com.movie.test.servlet.StageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StageServlet</servlet-name>
+  	<url-pattern>/stage/*</url-pattern>
+  </servlet-mapping> 
 </web-app>

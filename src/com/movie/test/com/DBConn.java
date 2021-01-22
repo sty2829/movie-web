@@ -28,7 +28,7 @@ public class DBConn {
 			con = DriverManager.getConnection(URL,USER,PASSWORD);
 			con.setAutoCommit(false);
 			System.out.println("커넥션성공    : " + con);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -38,7 +38,7 @@ public class DBConn {
 		if(con!=null) {
 			try {
 				con.close();
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -48,7 +48,7 @@ public class DBConn {
 		if(st!=null) {
 			try {
 				st.close();
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -57,7 +57,7 @@ public class DBConn {
 		if(ps!=null) {
 			try {
 				ps.close();
-			}catch (SQLException e) {
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -67,7 +67,7 @@ public class DBConn {
 		if(rs!=null) {
 			try {
 				rs.close();
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -96,7 +96,7 @@ public class DBConn {
 			try {
 				con.commit();
 				System.out.println("커밋 성공!");
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -106,7 +106,7 @@ public class DBConn {
 			try {
 				con.rollback();
 				System.out.println("롤백");
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

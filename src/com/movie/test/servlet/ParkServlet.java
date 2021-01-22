@@ -78,7 +78,7 @@ public class ParkServlet extends HttpServlet {
 			str = "수정";
 		}else if("delete".equals(cmd)) {
 			String tpNum = request.getParameter("tp_num");
-			cnt = parkService.deletPark(Integer.parseInt(tpNum));
+			cnt = parkService.deletePark(Integer.parseInt(tpNum));
 			str = "삭제";
 		}
 		

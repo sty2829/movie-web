@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,7 +16,11 @@ List<Map<String,String>> movieList = (List<Map<String,String>>)request.getAttrib
 <body>
 	<h3>영화 목록</h3>
 	<form>
-		제목 : <input type="text" name="mi_name">
+		<select name="search">
+			<option value="mi_name" <%= "mi_name".equals(request.getParameter("search")) ? "selected" : "" %>>제목</option>
+			<option value="mi_genre" <%= "mi_genre".equals(request.getParameter("search")) ? "selected" : "" %>>장르</option>
+			<option value="mi_director" <%= "mi_director".equals(request.getParameter("search")) ? "selected" : "" %>>감독</option>
+		</select> : <input type="text" name="mi_name" value="<%= (request.getParameter("mi_name")) != null ? request.getParameter("mi_name") : "" %>">
 		<button>검색</button><br><br>
 	</form>
 	<table border="1">

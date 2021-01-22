@@ -14,25 +14,30 @@ import com.movie.test.dao.MovieDAO;
 public class MovieDAOImpl implements MovieDAO {
 
 	@Override
-	public List<Map<String, String>> selectMovieList(String miName) {
+	public List<Map<String, String>> selectMovieList(Map<String, String> pMovie) {
 		List<Map<String, String>> movieList = new ArrayList<Map<String,String>>();
 		Connection con = DBConn.getConn();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "select mi_num, mi_name, mi_genre, \r\n" + 
 				"mi_producer, mi_director, \r\n" + 
-				"to_char(to_date(mi_release_date), 'yyyy-mm-dd') mi_release_date, \r\n" + 
-				"to_char(to_date(mi_credat), 'yyyy-mm-dd') mi_credat, mi_desc \r\n" + 
+				"to_char(to_date(mi_release_date), 'YYYY-MM-DD') mi_release_date, \r\n" + 
+				"to_char(to_date(mi_credat), 'YYYY-MM-DD') mi_credat, mi_desc \r\n" + 
 				"from movie_info";
-		if(miName!=null && !"".equals(miName)) {
-			sql += " where mi_name like ?";
+		String search = pMovie.get("search");
+		if(pMovie.get("mi_name") != null && !"".equals(pMovie.get("mi_name"))) {
+			if("mi_name".equals(search) || "mi_genre".equals(search) || "mi_director".equals(search)) {
+				sql += " where " + search + " like ?";
+			}
 		}
 		sql += " order by mi_num";
 		try {
 			
 			ps = con.prepareStatement(sql);
-			if(miName!=null && !"".equals(miName)) {
-				ps.setString(1, "%" + miName + "%");
+			if(pMovie.get("mi_name")!=null && !"".equals(pMovie.get("mi_name"))) {
+				if("mi_name".equals(search) || "mi_genre".equals(search) || "mi_director".equals(search)) {
+					ps.setString(1, "%" + pMovie.get("mi_name") + "%");
+				}
 			}
 			rs = ps.executeQuery();
 			while(rs.next()) {

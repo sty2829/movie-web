@@ -26,9 +26,10 @@ public class MovieServlet extends HttpServlet {
 		String cmd = uri.substring(idx+1);
 		String path = "/movie/movie-" + cmd;
 		if("list".equals(cmd)){
-			String miName = request.getParameter("mi_name");
-			List<Map<String,String>> movieList = movieService.selectMovieList(miName);
-			request.setAttribute("movieList", movieList);
+			Map<String,String> pMovie = new HashMap<>();
+			pMovie.put("mi_name", request.getParameter("mi_name"));
+			pMovie.put("search", request.getParameter("search"));
+			request.setAttribute("movieList", movieService.selectMovieList(pMovie));
 		}else if("insert".equals(cmd)) {
 		}else if("update".equals(cmd)) {
 			request.setAttribute("movie", movieService.selectMovie(Integer.parseInt(request.getParameter("mi_num"))));

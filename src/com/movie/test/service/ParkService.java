@@ -13,5 +13,5 @@ public interface ParkService {
 	
 	int updatePark(Map<String,String> park);
 	
-	int deletPark(int tpNUm);
+	int deletePark(int tpNum);
 }

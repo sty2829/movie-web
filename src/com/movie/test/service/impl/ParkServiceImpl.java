@@ -32,7 +32,7 @@ public class ParkServiceImpl implements ParkService {
 	}
 
 	@Override
-	public int deletPark(int tpNUm) {
+	public int deletePark(int tpNUm) {
 		return parkDAO.deletPark(tpNUm);
 	}
 

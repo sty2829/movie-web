@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface MovieDAO {
 
-	List<Map<String,String>> selectMovieList(String miName);
+	List<Map<String,String>> selectMovieList(Map<String,String> pMovie);
 	
 	Map<String,String> selectMovie(int miNum);
 	
