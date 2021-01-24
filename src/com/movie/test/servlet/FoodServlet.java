@@ -79,9 +79,10 @@ public class FoodServlet extends HttpServlet {
 		if(cnt!=1) {
 			msg = "음식 " + str  + "에 실패하였습니다.";
 			request.setAttribute("msg", msg);
+		}else {
+			msg = "음식 " + str  + "에 성공하였습니다.";
+			request.setAttribute("msg", msg);
 		}
-		msg = "음식 " + str  + "에 성공하였습니다.";
-		request.setAttribute("msg", msg);
 		
 		RequestDispatcher requestDispatcher = 
 				request.getRequestDispatcher(PRIFIX + path + SUFFIX);
