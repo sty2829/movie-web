@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -24,5 +25,36 @@
 	<input type="hidden" name="ti_num" value="<%=request.getParameter("tiNum")%>">
 		<button>삭제</button>
 	</form>
+	<br>
+	
+<%
+List<Map<String,String>> stageList = (List<Map<String,String>>)request.getAttribute("stageList");
+%>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>상영관명</th>
+			<th>층</th>
+			<th>종류</th>
+			<th>영화관명</th>
+			<th>생성날짜</th>
+		</tr>			
+<%
+for(int i=0; i<stageList.size(); i++){
+	Map<String,String> stage = stageList.get(i);
+%>
+		<tr>
+			<td><%= stage.get("sti_num") %></td>
+			<td><%= stage.get("sti_name") %></td>
+			<td><%= stage.get("sti_floor") %></td>
+			<td><%= stage.get("sti_type") %></td>
+			<td><%= stage.get("ti_name") %></td>
+			<td><%= stage.get("sti_credat") %></td>
+		</tr>
+
+<%
+}
+%>		
+	</table>
 </body>
 </html>

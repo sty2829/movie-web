@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.movie.test.service.StageService;
 import com.movie.test.service.TheaterService;
+import com.movie.test.service.impl.StageServiceImpl;
 import com.movie.test.service.impl.TheaterServiceImpl;
 
 public class TheaterServlet extends HttpServlet {
@@ -19,6 +21,7 @@ public class TheaterServlet extends HttpServlet {
 	private final String PREFIX = "/WEB-INF/views";
 	private final String SUFFIX = ".jsp";
 	private TheaterService theaterService = new TheaterServiceImpl();
+	private StageService stageService = new StageServiceImpl();
 	
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,6 +38,7 @@ public class TheaterServlet extends HttpServlet {
 			
 		}else if("update".equals(cmd)) {
 			path = "/theater/theater-update";
+			request.setAttribute("stageList", stageService.selectStageList());
 			Map<String,String> theater =
 			theaterService.selectTheater(Integer.parseInt(request.getParameter("tiNum")));
 			request.setAttribute("theater", theater);

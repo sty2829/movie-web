@@ -12,6 +12,7 @@
 <%
 List<Map<String,String>> stageList = (List<Map<String,String>>)request.getAttribute("stageList");
 %>
+	<h3>상영관 목록</h3>
 	<table border="1">
 		<tr>
 			<th>번호</th>
@@ -30,7 +31,7 @@ for(int i=0; i<stageList.size(); i++){
 			<td><a href="/stage/update?sti_num=<%= stage.get("sti_num") %>"><%= stage.get("sti_name") %></a></td>
 			<td><%= stage.get("sti_floor") %></td>
 			<td><%= stage.get("sti_type") %></td>
-			<td><%= stage.get("ti_name") %></td>
+			<td><a href="/theater/update?tiNum=<%= stage.get("ti_num") %>"><%= stage.get("ti_name") %></a></td>
 			<td><%= stage.get("sti_credat") %></td>
 		</tr>
 
@@ -38,7 +39,7 @@ for(int i=0; i<stageList.size(); i++){
 }
 %>		
 		<tr>
-			<td colspan="6" align="right"><a href="/stage/insert">등록</a></td>
+			<td colspan="6" align="right"><a href="/theater/list">극장관 리스트</a>    <a href="/stage/insert">등록</a></td>
 		</tr>
 	</table>
 
