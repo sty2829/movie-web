@@ -27,7 +27,6 @@ public class DBConn {
 		try {
 			con = DriverManager.getConnection(URL,USER,PASSWORD);
 			con.setAutoCommit(false);
-			System.out.println("커넥션성공    : " + con);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
