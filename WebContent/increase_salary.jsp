@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert 콜 here</title>
+<title>increase_salary</title>
 </head>
 <body>
 <%
@@ -16,15 +16,14 @@ String url = "jdbc:oracle:thin:@localhost:1521/xe";
 String id = "jtest";
 String pwd = "ezen1234";
 
-Class.forName(driverName);
-
-
 Connection con = DriverManager.getConnection(url, id, pwd);
 CallableStatement cs = null;
 try{
-	cs = con.prepareCall("{call prd_insert_sido_count()}");
+	cs = con.prepareCall("{call increase_salary(?, ?)}");
+	cs.setString(1, "blue");
+	cs.setDouble(2, 0.5);
 	cs.executeUpdate();
-	out.println("성공");
+	out.println("dragon의 급여를 0.05 인상했습니다.");
 }catch(Exception e){
 	e.printStackTrace();
 	out.println("실패");
@@ -37,7 +36,5 @@ try{
 	}
 }
 %>
-
-
 </body>
 </html>

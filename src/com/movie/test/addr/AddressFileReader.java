@@ -16,7 +16,7 @@ import com.movie.test.dao.impl.JibunAddressDAOImpl;
 
 public class AddressFileReader {
 	
-	public static final String path = "C:\\study\\addr";
+	public static final String path = "C:\\study\\addr\\buildDB";
 	
 	public static void main(String[] args) {
 		System.out.println("시작");
@@ -39,7 +39,6 @@ public class AddressFileReader {
 		List<Map<String,String>> jaList = new ArrayList<>();
 		JibunAddressDAO jibunAddressDAO = new JibunAddressDAOImpl();
 		File root = new File(path);
-		int totalCnt = 0;
 		
 		File[] files = root.listFiles();
 		for(int i=0; i<files.length; i++) {

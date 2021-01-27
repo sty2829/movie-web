@@ -22,7 +22,9 @@ Class.forName(driverName);
 Connection con = DriverManager.getConnection(url, id, pwd);
 CallableStatement cs = null;
 try{
-	cs = con.prepareCall("{call prd_insert_sido_count()}");
+	cs = con.prepareCall("{call prd_increase_sal(?, ?)}");
+	cs.setInt(1, 5);
+	cs.setDouble(2, 0.5);
 	cs.executeUpdate();
 	out.println("성공");
 }catch(Exception e){

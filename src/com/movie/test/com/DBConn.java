@@ -94,7 +94,6 @@ public class DBConn {
 		if(con!=null) {
 			try {
 				con.commit();
-				System.out.println("커밋 성공!");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -104,7 +103,6 @@ public class DBConn {
 		if(con!=null) {
 			try {
 				con.rollback();
-				System.out.println("롤백");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
