@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	position : relative;
+}
+</style>
+</head>
+<body>
+	<div></div>
+	<button onclick="testAlert()">움직여 !</button>
+	<!--
+	html 태그의 속성중에 on으로 시작하면 무조건 이벤트!!
+	어떤 이벤트인지 알려면 on뒤를 읽으면 됨
+	 -->
+<script>
+/*
+ * java : 객체지향언어 oop
+   javascript : 객체지향언어 기반 스크립트 <-- 엄청나게 떴음.
+   nodejs가 나오면서 브라우져외 많이 사용함.
+      심지어 서버로도 많이사용함(마이크로서버)
+ */
+function test(){
+	var divObj = document.querySelector('div');
+	var left = 0;
+	setInterval(function(){
+		divObj.style.left = (left+=10) + 'px';
+		if(left==1000){
+			left = 0;
+		}
+	},100);
+}
+function testAlert(){
+	var divObj = document.querySelector('div');
+	alert(divObj.style.width);
+}
+</script> 
+</body>
+</html>

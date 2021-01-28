@@ -1,0 +1,30 @@
+@charset "UTF-8";
+li {
+	list-style: none; /* 리스트 쩜삭제  */
+	float: left; /* 왼쪽 정렬 */
+	width: 100px;
+	border: 1px solid;
+	border-right: 0px; /* 겹친라인 제거 */
+	text-align: center;
+}
+
+.ll {
+	border-right: 1px solid; /*마지막리스트 오른쪽 라인 생성  */
+}
+
+.clear {
+	clear: both;
+	width: 0px;
+	border: 0px;
+}
+
+.data>li {
+	border-top: 0px;
+}
+
+.head {
+	font-weight: bold;
+}
+.head>li{
+	background-color : #ffffad;
+}
