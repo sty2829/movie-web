@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	padding: 0;
+	margin: 0;
+	font-family: '돋움', '굴림';
+}
+
+div.nav-top {
+	height: 44px;
+}
+
+div.nav-top>ul {
+	height: 42px;
+	list-style: none;
+	background: #FAF4C0;
+}
+
+div.nav-top>ul>li {
+	float: left;
+	position: relative;
+	width: 95px;
+	height: 40px;
+	text-align: center;
+}
+
+div.nav-top>ul>li a {
+	text-decoration: none; /* 링크밑줄삭제  */
+	display: block;
+	height: 40px;
+	color: black;
+}
+</style>
+</head>
+<body>
+	<div class="nav-top">
+		<ul>
+			<li onmouseover="changeColor(this)"
+			onmouseout="changeColor(this)"
+			><a href="">영화</a></li>
+			<li onmouseover="changeColor(this)"
+			onmouseout="changeColor(this)"><a href="">예매</a></li>
+			<li onmouseover="changeColor(this)"
+			onmouseout="changeColor(this)"><a href="">극장</a></li>
+			<li onmouseover="changeColor(this)"
+			onmouseout="changeColor(this)"><a href="">이벤트&컬쳐</a></li>
+			<li class="clear"></li>
+		</ul>
+	</div>
+	<script>
+		function changeColor(obj) {
+			if(obj.style.backgroundColor==''){
+				obj.style.backgroundColor = 'red';
+			}else{
+				obj.style.backgroundColor = '';
+			}
+			
+		}
+	</script>
+</body>
+</html>

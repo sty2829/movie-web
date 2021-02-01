@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div id="d1">d1</div>
+	<div id="d2">d2</div>
+	<div id="d3">d3</div>
+	<button onclick="changeAll()">바꿔</button>
+	<script>
+		function changeAll() {
+			var divs = document.querySelectorAll('div');
+			for(var i=0; i<divs.length; i++){
+				var div = divs[i];
+				div.style.color = 'blue';
+			}
+		}
+	</script>
+</body>
+</html>

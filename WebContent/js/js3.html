@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+/*  
+ * 
+  1. BOM : Browser Object Model - window 최상위
+  2. DOM : Document Object Model - doucument 최상위
+ */
+	document.write('hello~');
+	var num = 10;
+	if(num>10){
+		document.write('num이 10보다 크군요');
+	}else if(num<10){
+		document.write('num이 10보다 작군요');
+	}else{
+		document.write('num은 10이군요');
+	}
+	
+	for(var i=1; i<=10; i++){
+		document.write('<br>' + i);
+	}
+	document.write('<br>');
+	var age = 22;
+	age = Math.floor(age/10);
+	switch(age){
+		case 0 : 
+			document.write('유아기');
+			break;
+		case 1 :
+			document.write('10대');
+			break;
+		case 2 :
+			document.write('20대');
+			break;
+		default :
+			document.write('황혼');
+	
+	}
+	document.write('<br>');
+	var max = 10;
+	var n = 1;
+	while(n++<max){
+		document.write('<br>' + n);
+	}
+	document.write('<br>');
+	do{
+		document.write('난 무조건 1번 이상은 실행됨');
+	}while(n<max);
+	
+</script>
+</body>
+</html>

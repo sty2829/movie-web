@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="d1" class="ex">d1이라구해</div>
+	<div id="d2" class="ex">d2이라구해</div>
+	<div id="d3" class="ex">d3이라구해</div>
+	<button onclick="changeAll()">바꾸장!</button>
+	<script>
+		function changeAll(){
+			var divs = document.getElementsByClassName('ex');
+			for(var i=0; i<divs.length; i++){
+				var div = divs[i];
+				div.style.color = 'red';
+			}
+		}
+	</script>
+</body>
+</html>

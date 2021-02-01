@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="all">
+		<div>안녕1</div>
+		<div>안녕1</div>
+	</div>
+	<div>안녕2</div>
+	<button onclick="changeSelector()">안녕1만바꿔저</button>
+	<script>
+		function changeSelector(){
+			var divs = document.querySelectorAll('#all>div');
+			for(var i=0; i<divs.length; i++){
+				var div = divs[i];
+				alert(div.innerText);
+			}
+		}
+	</script>
+</body>
+</html>

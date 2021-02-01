@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="d1">안녕 난d1</div>
+	<div id="d2">안녕 난d2</div>
+	<div id="d3">안녕 난d3</div>
+	<button onclick="changeAll()">모두 변해라 얍!</button>
+	<script>
+		function changeAll(){
+			var divs = document.getElementsByTagName('div');
+			for(var i=0; i<divs.length; i++){
+				var div = divs[i];
+				div.style.color = 'red';
+			}
+		}
+		function foo(){
+			console.log(x);
+			var x = 'local';
+			console.log(x);
+		}
+		foo();
+	</script>
+</body>
+</html>

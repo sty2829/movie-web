@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" id="id" name="inpu">
+	<input type="text" id="age" name="inpu">
+	<input type="text" id="password" name="inpu">
+	<input type="text" id="address" name="inpu">
+	<button onclick="insertAll()">한번이 입력!</button>
+	<script>
+		function insertAll() {
+			var inputs = document.getElementsByName('inpu');
+			for(var i=0; i<inputs.length; i++){
+				input = inputs[i];
+				input.value = 'ok~';
+			}
+		}
+	</script>
+
+</body>
+</html>
