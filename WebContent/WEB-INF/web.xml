@@ -57,5 +57,15 @@
   <servlet-mapping>
   	<servlet-name>StageServlet</servlet-name>
   	<url-pattern>/stage/*</url-pattern>
-  </servlet-mapping> 
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ViewServlet</servlet-name>
+  	<servlet-class>com.movie.test.servlet.ViewServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ViewServlet</servlet-name>
+  	<url-pattern>/views/*</url-pattern>
+  </servlet-mapping>
 </web-app>

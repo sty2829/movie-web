@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<div class="t1">
+			<a href="">hello</a>
+		</div>
+		<div>
+			<a href="">hi</a>
+		</div>
+	</div>
+	<button onclick="changeA()">바꾸자</button>
+	<script>
+	
+		function changeA() {
+			var obj = document.querySelector('.t1>a');
+			console.log(obj);
+			obj.innerText = '안녕~';
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return check()">
+		<input type="text" name="id" placeholder="아이디"><br>
+		<input type="password" name="pwd" placeholder="비밀번호"><br>
+		<button>로그인</button>
+		<button type="button">난 걍 바턴</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+<script>
+	function check(){
+		var id = document.querySelector('[name=id]');
+		if(id.value==''){
+			alert("아이디 입력안해 ??");
+			return false;
+		}
+		var pwd = document.querySelector('[name=pwd]');
+		if(pwd.value==''){
+			alert('비밀번호 입력 안허냐~');
+			return false;
+		}
+		return true;
+	}
+</script>
+</html>

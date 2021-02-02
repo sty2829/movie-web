@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+이름 : 2글자이상 10글자 이하
+아이디 : 4글자이상 20글자 이하 영문 + 숫자만 가능
+비밀번호 : 6글자 이상 20글자 이하
+주민번호 : 6숫자-7숫자 반드시 숫자만
+주소: 4글자 이상 100글자 이하 
+폰번호: 3픽스- 3자리이상 4자리이하-4픽스
+이메일: 4글자 이상 30글자 이하
+ -->
+	<form onsubmit="return check()">
+		<input type="text" name="name" id="name" placeholder="이름" maxlength="10"><br>
+		<input type="text" name="id" id="id" placeholder="아이디" maxlength="20"><br>
+		<input type="password" name="pwd" id="pwd" placeholder="비밀번호" maxlength="20"><br>
+		<input type="text" name="ssn1" id="ssn1" placeholder="주민번호앞자리" maxlength="6" size="10">
+		- <input type="text" name="ssn2" id="ssn2" placeholder="주민번호뒷자리" maxlength="7" size="10"><br>
+		<input type="text" name="address" id="address" placeholder="주소" maxlength="100"><br>
+		<input type="text" name="phone" id="phone" placeholder="핸드폰번호 - 입력해주세요" maxlength="13"><br>
+		<input type="text" name="email" id="email" placeholder="이메일" maxlength="30"><br>
+		
+		
+		<button>회원가입</button>
+	</form>
+	<script>
+		function check(){
+			var name = document.querySelector('#name');
+			if(name.value.trim().length<2){
+				alert('이름 없어영?');
+				name.value = '';
+				name.focus(); /* 마우스커서를 위치시키는 메서드인가봄  */
+				return false;
+			}
+			var id = document.querySelector('#id');
+			if(id.value.trim().length<4){
+				alert('아이디는 4글자 이상입니다');
+				id.value = '';
+				id.focus();
+				return false;
+			}
+			var pwd = document.querySelector('#pwd');
+			if(pwd.value.trim().length<6){
+				alert('비밀번호는 6글자 이상입니다.');
+				pwd.value = '';
+				pwd.focus();
+				return false;
+			}
+			var ssn1 = document.querySelector('#ssn1');
+			var ssn = ssn1.value.trim();
+			if(isNaN(ssn) || ssn.length != 6){
+				alert("주민번호 앞자리는 숫자 6자리입니다.");
+				ssn1.value = '';
+				ssn1.focus();
+				return false;
+			}
+			var ssn2 = document.querySelector('#ssn2');
+			ssn = ssn2.value.trim();
+			if(isNaN(ssn) || ssn.length != 7){
+				alert("주민번호 뒷자리는 숫자 7자리입니다.");
+				ssn2.value = '';
+				ssn2.focus();
+				return false;
+			}
+			var address = document.querySelector('#address');
+			if(address.value.trim().length < 4){
+				alert("주소는 4글자 이상입니다.");
+				address.value = '';
+				address.focus();
+				return false;
+			}
+			var phone = document.querySelector('#phone');
+			var phones = phone.value.trim().split('-');
+			if(isNaN(phones[0]) || phones[0].length != 3){
+				alert("폰번호 형식 3-3~4-4 숫자 입니다");
+				phone.value = '';
+				phone.focus();
+				return false;
+			}
+			console.log(phones[1].length);
+			if(isNaN(phones[1]) || phones[1].lenght != 3 && phones[1].lenght != 4){
+				alert("기달바");
+				phone.value = '';
+				phone.focus();
+				return false;
+			}
+			if(isNaN(phones[2]) || phones[2].lenght != 4){
+				phone.value = '';
+				phone.focus();
+				return false;
+			}
+			
+	
+			/* 이름 : 2글자이상 10글자 이하
+			아이디 : 4글자이상 20글자 이하 영문 + 숫자만 가능
+			비밀번호 : 6글자 이상 20글자 이하
+			주민번호 : 6숫자-7숫자 반드시 숫자만
+			주소: 4글자 이상 100글자 이하 
+			폰번호: 3픽스- 3자리이상 4자리이하-4픽스
+			이메일: 4글자 이상 30글자 이하 */
+	
+			return false;
+		}
+	
+	
+	</script>
+</body>
+</html>

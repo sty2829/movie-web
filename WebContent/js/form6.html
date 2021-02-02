@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return check()">
+		번호인증 : <input type="text" id="ph">  <button type="button" onclick="send()">인증하기</button><br>
+		인증번호 입력 : <input type="text" id="certify">  <button type="button" onclick="certified()">인증하기</button><br>
+		<button>회원가입</button>
+	</form>
+	<script>
+		function send(){
+			alert("휴대폰으로 인증번호 보내기를 구현하면됨");
+		}
+		function certified(){
+			alert("입력한 번호가 휴대폰으로 보낸 인증번호와 같은지 확인하면 됨");
+		}
+		function check(){
+			var ph = document.querySelector('#ph');
+			console.log(ph.value.lenght);
+			
+			return false;
+		}
+	</script>
+</body>
+</html>

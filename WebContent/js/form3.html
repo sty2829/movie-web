@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return check()">
+		성별: <label for="man">남</label><input type="radio" name="trans" id="man" value="1" checked>
+		<label for="woman">여</label><input type="radio" name="trans" id="woman" value="2">
+		<br>
+		<button>확인</button>
+	</form>
+	
+	<script>
+		function check(){
+			document.querySelector('[name=trans]');
+		}
+	</script>
+</body>
+</html>

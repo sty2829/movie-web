@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return check()">	
+		아이디<br>
+		<input type="text" name="id" id="id" maxlength="20"><br>
+		비밀번호<br>
+		<input type="password" name="pwd" id="pwd1" maxlength="16"><br>
+		비밀번호 재확인<br>
+		<input type="password" name="pwd" id="pwd2" maxlength="16"><br>
+		이름<br>
+		<input type="text" name="name" id="name" maxlength="20"><br>
+		생년월일<br>
+		<input type="text" name="year" id="year" placeholder="년(4자)" maxlength="4">
+		<select name="month" id="month">
+			<option>월</option>
+		</select>
+		<input type="text" name="day" id="day" placeholder="일" maxlength="2"><br>
+		성별<br>
+		<select>
+			<option>성별</option>
+			<option>남자</option>
+			<option>여자</option>
+			<option>선택 안함</option>
+		</select>
+		<br>
+		본인 확인 이메일(선택)<br>
+		<input type="email" name="email" id="email"><br>
+		휴대전화<br>
+		<select>
+			<option>대한민국 +82</option>
+		</select>
+		<br>
+		<input type="text" name="phone" id="phone" placeholder="전화번호 입력" maxlength="11"><br>
+		<input type="text" name="auth" id="auth" maxlength="5" placeholder="인증번호를 입력하세요"><br>
+		
+		<button>가입하기</button>
+	</form>
+	<script>
+		function check() {
+			var id = document.querySelector('#id');
+			if(id.value.trim().length<5) {
+				alert('아이디는 5글자 이상입니다.');
+				id.value = '';
+				id.focus();
+				return false;
+			}
+			var pwd1 = document.querySelector('#pwd1');
+			if(pwd1.value.trim().length<8) {
+				alert('패스워드는 8글자 이상입니다.');
+				pwd1.value = '';
+				pwd1.focus();
+				return false;
+			}
+			var pwd2 = document.querySelector('#pwd2');
+			if(pwd1.value == pwd2.value) {
+				alert('비밀번호 다르네요');
+				pwd2.value = '';
+				pwd2.focus();
+				return false;
+			}
+			var name = document.querySelector('#name');
+			if(name.value.trim().length<2) {
+				alert('이름 입력해주세요 .');
+				name.value = '';
+				name.focus();
+				return false;
+			}
+			var year = document.querySelector('#year');
+			var checkYear = year.value.trim();
+			if(isNaN(checkYear) | checkYear.length != 4) {
+				alert('태어난 년도는 4자리입니다.');
+				year.value = '';
+				year.focus();
+				return false;
+			}
+			var day = document.querySelector('#day');
+			var checkDay = day.value.trim();
+			if(isNaN(checkDay) | checkDay.length < 1) {
+				alert('태어난 일을 입력해주세요.');
+				day.value = '';
+				day.focus();
+				return false;
+			}
+			
+			return false;
+		}
+	
+	</script>
+</body>
+</html>

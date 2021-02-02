@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return check()">
+		비번 : <input type="password" name="pwd" id="pwd1"><br>
+		비번확인 : <input type="password" name="pwd" id="pwd2"><br>
+		<button>확인</button>
+	</form>
+	<script>
+		function check() {
+			var pwd1 = document.querySelector('#pwd1');
+			if(pwd1.value.trim().length < 6){
+				alert('비밀번호는 6글자 이상입니다.');
+				pwd1.value= '';
+				pwd1.focus();
+				return false;
+			}
+			var pwd2 = document.querySelector('#pwd2');
+			if(pwd1.value != pwd2.value){
+				alert('비밀번호가 다르네요');
+				pwd2.value = '';
+				pwd2.focus();	
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>
